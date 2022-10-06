@@ -83,6 +83,8 @@ namespace Blockchat.Areas.Identity.Pages.Account
 
             [Display(Name = "Date of Birth")]
             public DateTime BirthDate { get; set; }
+            [Display(Name = "Profile Picture")]
+            public byte[] ProfilePicture { get; set; }
 
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
@@ -120,10 +122,22 @@ namespace Blockchat.Areas.Identity.Pages.Account
                 var user = CreateUser();
                 user.BirthDate = Input.BirthDate;
                 user.JoinDate = DateTime.Now;
-
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
+
+
                 var result = await _userManager.CreateAsync(user, Input.Password);
+                if (Request.Form.Files.Count > 0)
+                {
+                    IFormFile file = Request.Form.Files.FirstOrDefault();
+                    using (var dataStream = new MemoryStream())
+                    {
+                        await file.CopyToAsync(dataStream);
+                        user.ProfilePicture = dataStream.ToArray();
+                    }
+                    await _userManager.UpdateAsync(user);
+                }
+
 
                 if (result.Succeeded)
                 {
