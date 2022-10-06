@@ -23,6 +23,14 @@ namespace Blockchat.Controllers
             return View();
         }
 
+        public IActionResult Store()
+        {
+            return View();
+        }
+        public IActionResult Promote()
+        {
+            return View();
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
