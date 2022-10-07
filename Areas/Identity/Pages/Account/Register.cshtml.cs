@@ -124,9 +124,6 @@ namespace Blockchat.Areas.Identity.Pages.Account
                 user.JoinDate = DateTime.Now;
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
-
-
-                var result = await _userManager.CreateAsync(user, Input.Password);
                 if (Request.Form.Files.Count > 0)
                 {
                     IFormFile file = Request.Form.Files.FirstOrDefault();
@@ -138,6 +135,8 @@ namespace Blockchat.Areas.Identity.Pages.Account
                     await _userManager.UpdateAsync(user);
                 }
 
+
+                var result = await _userManager.CreateAsync(user, Input.Password);
 
                 if (result.Succeeded)
                 {

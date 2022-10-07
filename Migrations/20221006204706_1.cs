@@ -4,7 +4,7 @@
 
 namespace Blockchat.Migrations
 {
-    public partial class AddedCP : Migration
+    public partial class _1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

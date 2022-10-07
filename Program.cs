@@ -1,5 +1,6 @@
 using Blockchat.Areas.Identity.Data;
 using Blockchat.Data;
+using Blockchat.Hubs;
 using Blockchat.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
@@ -20,8 +21,11 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.R
 
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddSignalR();
+
 builder.Services.AddTransient<IEmailSender, EmailSender>();
 builder.Services.Configure<AuthMessageSenderOptions>(builder.Configuration);
+
 
 builder.Services.ConfigureApplicationCookie(o => {
     o.ExpireTimeSpan = TimeSpan.FromDays(5);
@@ -48,7 +52,6 @@ else
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
 app.UseRouting();
 
 app.UseAuthentication();
@@ -57,6 +60,12 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
-app.MapRazorPages();
+
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapHub<ChatHub>("/chatHub");
+});
 
 app.Run();
+
