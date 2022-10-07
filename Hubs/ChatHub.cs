@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.SignalR;
+﻿using Blockchat.Areas.Identity.Data;
+using Microsoft.AspNetCore.SignalR;
 
 namespace Blockchat.Hubs
 {
