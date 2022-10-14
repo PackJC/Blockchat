@@ -3,14 +3,14 @@
     ViewData["Title"] = "CREATE ROLE";
 }
 
-<h1 class="bg-info text-white">Create a Role</h1>
-<a asp-action="Index" class="btn btn-secondary">Back</a>
+<h1 class="h2">Create a Role</h1>
 <div asp-validation-summary="All" class="text-danger"></div>
 
 <form asp-action="Create" method="post">
     <div class="form-group">
-        <label for="name">Name:</label>
+        <label for="name">Role Name</label>
         <input name="name" class="form-control" />
     </div>
-    <button type="submit" class="btn btn-primary">Create</button>
+    <a asp-action="Index" class="btn btn-warning">Back</a>
+    <button type="submit" class="btn btn-success">Create</button>
 </form>
