@@ -1,16 +1,13 @@
-﻿using Blockchat.Areas.Identity.Data;
-using Blockchat.Models;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
-using System.Data;
+using Blockchat.Areas.Identity.Data;
+using Blockchat.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Blockchat.Controllers
 {
-
     [Authorize(Roles = "Admin")]
-
     public class RoleController : Controller
     {
         private RoleManager<IdentityRole> roleManager;
