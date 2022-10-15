@@ -22,12 +22,11 @@ Using `Package Manager Console` run these commands:
 ```
 Add-Migration "Migration1"
 Update-Database
+```
+This creates a migration and updates your database.
+
 Using SendGrid Package for email confirmation and password recovery
 SignalR for text chat
-
-```
-
-This create a migration and updates your database.
 
 Now create `appsettings.json` and paste the code below.
 ```
