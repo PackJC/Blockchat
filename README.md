@@ -12,8 +12,8 @@ Identity Authentication & Authorization Roles
 
 
 WebRTC/SignalR
-Xsockets.net-4.0
 Use STUN/TURN Server to develop video connection that doesn't reveal end-to-end user
+
 https://developer.liveswitch.io/liveswitch-server/guides/what-are-stun-turn-and-ice.html
 
 **How to Setup**
