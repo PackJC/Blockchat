@@ -20,7 +20,12 @@ namespace Blockchat.Controllers
 
         public IActionResult Privacy()
         {
-            return View();
+            return View("WebRTC");
+        }
+
+        public IActionResult WebRTC()
+        {
+            return View("WebRTC");
         }
 
         public IActionResult Store()

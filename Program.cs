@@ -63,6 +63,7 @@ app.MapControllerRoute(
 app.MapRazorPages();
 
 app.MapHub<ChatHub>("/chatHub");
+app.MapHub<WebRTCHub>("/WebRTCHub");
 
 
 
